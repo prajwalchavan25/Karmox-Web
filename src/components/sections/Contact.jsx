@@ -1,21 +1,73 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, MessageSquare, User, CheckCircle, Linkedin, Github, Instagram } from 'lucide-react';
+import { Send, Mail, MessageSquare, User, CheckCircle, AlertCircle, Linkedin, Github, Instagram } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-    
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 600);
+    setErrorMessage('');
+
+    // Form validation
+    if (!formData.name.trim()) {
+      setErrorMessage('Please enter your name.');
+      setStatus('error');
+      return;
+    }
+
+    if (!formData.email.trim() || !validateEmail(formData.email.trim())) {
+      setErrorMessage('Please provide a valid email address.');
+      setStatus('error');
+      return;
+    }
+
+    if (!formData.message.trim()) {
+      setErrorMessage('Please write your message.');
+      setStatus('error');
+      return;
+    }
+
+    setStatus('loading');
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/karmaoxdeveloper@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          _subject: `New Message from ${formData.name.trim()} (Karmaox Website)`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && (data.success === 'true' || data.success === true || data.message)) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error(data.message || 'Submission failed. Please try again.');
+      }
+    } catch (err) {
+      console.error('Contact form submission error:', err);
+      setStatus('error');
+      setErrorMessage(
+        err.message || 'Unable to send message right now. Please try again or reach out directly via email.'
+      );
+    }
   };
 
   return (
@@ -58,7 +110,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="text-xs text-slate-400 font-light">
-                Building practical digital products with modern software, web technologies, and creative innovation.
+                Direct Inquiries: <span className="text-brand-cyan font-mono">karmaoxdeveloper@gmail.com</span>
               </div>
             </div>
 
@@ -106,21 +158,21 @@ export default function Contact() {
               {/* Top gradient border */}
               <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
 
-              {submitted ? (
+              {status === 'success' ? (
                 <div className="py-12 text-center flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan mb-6">
+                  <div className="w-16 h-16 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan mb-6 shadow-[0_0_20px_rgba(0,240,255,0.2)]">
                     <CheckCircle className="w-8 h-8" />
                   </div>
-                  <h3 className="font-display font-bold text-2xl text-white mb-2">Message Recorded</h3>
-                  <p className="text-slate-300 text-sm max-w-md font-light leading-relaxed mb-6">
-                    Thank you for reaching out to Karmaox. Direct backend integrations will be synced shortly.
+                  <h3 className="font-display font-bold text-2xl text-white mb-2">Message Sent</h3>
+                  <p className="text-slate-300 text-base max-w-md font-light leading-relaxed mb-6">
+                    Thanks for contacting Karmaox. We'll get back to you soon.
                   </p>
                   <button
                     onClick={() => {
-                      setSubmitted(false);
-                      setFormData({ name: '', email: '', message: '' });
+                      setStatus('idle');
+                      setErrorMessage('');
                     }}
-                    className="px-6 py-2.5 rounded-full bg-white/10 text-white text-xs font-mono uppercase tracking-wider hover:bg-white/20 transition-all"
+                    className="px-6 py-2.5 rounded-full bg-white/10 text-white text-xs font-mono uppercase tracking-wider hover:bg-white/20 transition-all border border-white/10"
                   >
                     Send Another Note
                   </button>
@@ -128,10 +180,18 @@ export default function Contact() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   
+                  {/* Error Notification banner if any */}
+                  {errorMessage && (
+                    <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-start gap-3 text-rose-300 text-sm">
+                      <AlertCircle className="w-5 h-5 flex-shrink-0 text-rose-400 mt-0.5" />
+                      <div>{errorMessage}</div>
+                    </div>
+                  )}
+
                   {/* Name Input */}
                   <div>
                     <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2">
-                      Your Name
+                      Your Name <span className="text-brand-cyan">*</span>
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500">
@@ -140,10 +200,11 @@ export default function Contact() {
                       <input
                         type="text"
                         required
+                        disabled={status === 'loading'}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Alex Mercer"
-                        className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-surface/90 border border-white/10 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan outline-none text-white text-sm placeholder-slate-500 transition-all font-sans"
+                        className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-surface/90 border border-white/10 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan outline-none text-white text-sm placeholder-slate-500 transition-all font-sans disabled:opacity-60"
                       />
                     </div>
                   </div>
@@ -151,7 +212,7 @@ export default function Contact() {
                   {/* Email Input */}
                   <div>
                     <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2">
-                      Email Address
+                      Email Address <span className="text-brand-cyan">*</span>
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500">
@@ -160,10 +221,11 @@ export default function Contact() {
                       <input
                         type="email"
                         required
+                        disabled={status === 'loading'}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="alex@example.com"
-                        className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-surface/90 border border-white/10 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan outline-none text-white text-sm placeholder-slate-500 transition-all font-sans"
+                        className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-surface/90 border border-white/10 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan outline-none text-white text-sm placeholder-slate-500 transition-all font-sans disabled:opacity-60"
                       />
                     </div>
                   </div>
@@ -171,7 +233,7 @@ export default function Contact() {
                   {/* Message Input */}
                   <div>
                     <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2">
-                      Message / Inquiry
+                      Message / Inquiry <span className="text-brand-cyan">*</span>
                     </label>
                     <div className="relative">
                       <div className="absolute top-4 left-4 pointer-events-none text-slate-500">
@@ -180,23 +242,27 @@ export default function Contact() {
                       <textarea
                         required
                         rows={4}
+                        disabled={status === 'loading'}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         placeholder="Describe your idea, inquiry, or challenge..."
-                        className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-surface/90 border border-white/10 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan outline-none text-white text-sm placeholder-slate-500 transition-all font-sans resize-none"
+                        className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-surface/90 border border-white/10 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan outline-none text-white text-sm placeholder-slate-500 transition-all font-sans resize-none disabled:opacity-60"
                       />
                     </div>
                   </div>
 
-                  {/* Notice & Submit Button */}
+                  {/* Submit Button */}
                   <div className="pt-2">
                     <button
                       type="submit"
-                      disabled={loading}
-                      className="w-full py-4 rounded-xl font-medium text-sm tracking-wide text-white bg-gradient-to-r from-brand-cyan/80 to-brand-blue/80 hover:from-brand-cyan hover:to-brand-blue transition-all duration-300 shadow-[0_0_25px_rgba(0,240,255,0.25)] hover:shadow-[0_0_35px_rgba(0,240,255,0.45)] flex items-center justify-center gap-2 group"
+                      disabled={status === 'loading'}
+                      className="w-full py-4 rounded-xl font-medium text-sm tracking-wide text-white bg-gradient-to-r from-brand-cyan/80 to-brand-blue/80 hover:from-brand-cyan hover:to-brand-blue transition-all duration-300 shadow-[0_0_25px_rgba(0,240,255,0.25)] hover:shadow-[0_0_35px_rgba(0,240,255,0.45)] flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
                     >
-                      {loading ? (
-                        <span className="inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      {status === 'loading' ? (
+                        <div className="flex items-center gap-2">
+                          <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <span>Sending message...</span>
+                        </div>
                       ) : (
                         <>
                           <span>Send Message</span>
@@ -205,7 +271,7 @@ export default function Contact() {
                       )}
                     </button>
                     <p className="text-center text-[11px] font-mono text-slate-400 mt-3">
-                      *Note: Contact form transmission configured for early-stage startup inquiries.
+                      Submissions are routed directly to <span className="text-slate-300">karmaoxdeveloper@gmail.com</span>
                     </p>
                   </div>
 
