@@ -55,26 +55,24 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between">
           
-          {/* Logo with official brand image */}
+          {/* Logo with official OX symbol (44-48px on desktop, 38px on mobile) */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, '#home')}
-            className="flex items-center gap-3 group select-none"
+            className="flex items-center gap-3.5 group select-none flex-shrink-0"
           >
-            <div className="h-8 w-auto flex items-center justify-center relative">
-              <img
-                src="/assets/karmaox-logo.png"
-                alt="Karmaox Official Logo"
-                className="h-7 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <span className="font-display font-bold text-lg tracking-[0.2em] text-white group-hover:text-brand-cyan transition-colors">
+            <img
+              src="/assets/karmaox-logo.png"
+              alt="Karmaox Logo"
+              className="h-9 sm:h-11 md:h-12 w-auto object-contain"
+            />
+            <span className="font-display font-bold text-lg sm:text-xl tracking-[0.2em] text-white group-hover:text-brand-cyan transition-colors">
               KARMAOX
             </span>
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 glass-panel px-4 py-1.5 rounded-full border border-white/5">
+          <nav className="hidden md:flex items-center gap-1 glass-panel px-5 py-2 rounded-full border border-white/5 mx-4">
             {navLinks.map((link) => {
               const linkId = link.href.replace('#', '');
               const isActive = activeSection === linkId;
@@ -101,11 +99,11 @@ export default function Navbar() {
           </nav>
 
           {/* Right CTA */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center flex-shrink-0">
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="relative inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-semibold tracking-wide uppercase bg-gradient-to-r from-brand-cyan/20 to-brand-indigo/20 hover:from-brand-cyan/30 hover:to-brand-indigo/30 border border-brand-cyan/40 hover:border-brand-cyan text-brand-cyan hover:text-white transition-all shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_25px_rgba(0,240,255,0.4)] group"
+              className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-gradient-to-r from-brand-cyan/20 to-brand-indigo/20 hover:from-brand-cyan/30 hover:to-brand-indigo/30 border border-brand-cyan/40 hover:border-brand-cyan text-brand-cyan hover:text-white transition-all shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_25px_rgba(0,240,255,0.4)] group"
             >
               <span>Let's Build</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -115,7 +113,7 @@ export default function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg bg-surface-card border border-white/10 text-slate-300 hover:text-white"
+            className="md:hidden p-2.5 rounded-lg bg-surface-card border border-white/10 text-slate-300 hover:text-white"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -131,7 +129,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[60px] p-4 z-30 md:hidden"
+            className="fixed inset-x-0 top-[68px] p-4 z-30 md:hidden"
           >
             <div className="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col gap-3 shadow-2xl">
               {navLinks.map((link) => (
