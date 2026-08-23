@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, MessageSquare, User, Sparkles, CheckCircle, Linkedin, Github } from 'lucide-react';
+import { Send, Mail, MessageSquare, User, CheckCircle, Linkedin, Github, Instagram } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -65,7 +65,7 @@ export default function Contact() {
             {/* Social handles */}
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href="https://linkedin.com/in/prajwalchavan"
+                href="https://www.linkedin.com/in/prajwal-chavan-6a1020380/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl glass-panel text-slate-300 hover:text-brand-cyan transition-colors text-xs font-medium border border-white/10 hover:border-brand-cyan/40"
@@ -74,13 +74,22 @@ export default function Contact() {
                 <span>LinkedIn</span>
               </a>
               <a
-                href="https://github.com/prajwalchavan25107"
+                href="https://github.com/prajwalchavan25"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl glass-panel text-slate-300 hover:text-brand-cyan transition-colors text-xs font-medium border border-white/10 hover:border-brand-cyan/40"
               >
                 <Github className="w-4 h-4 text-brand-cyan" />
                 <span>GitHub</span>
+              </a>
+              <a
+                href="https://www.instagram.com/prajwal_chavan10/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl glass-panel text-slate-300 hover:text-brand-cyan transition-colors text-xs font-medium border border-white/10 hover:border-brand-cyan/40"
+              >
+                <Instagram className="w-4 h-4 text-brand-cyan" />
+                <span>Instagram</span>
               </a>
             </div>
           </div>

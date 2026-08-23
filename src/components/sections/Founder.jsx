@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, Linkedin, Github, ArrowUpRight, Sparkles } from 'lucide-react';
+import { User, Linkedin, Github, Instagram, ArrowUpRight, Sparkles } from 'lucide-react';
 
 export default function Founder() {
   return (
@@ -83,24 +83,35 @@ export default function Founder() {
               {/* Verified Authentic Social Links */}
               <div className="flex flex-wrap items-center gap-3">
                 <a
-                  href="https://linkedin.com/in/prajwalchavan"
+                  href="https://www.linkedin.com/in/prajwal-chavan-6a1020380/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-cyan/40 text-slate-200 hover:text-brand-cyan text-xs font-medium transition-all group/link"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-cyan/40 text-slate-200 hover:text-brand-cyan text-xs font-medium transition-all group/link"
                 >
                   <Linkedin className="w-4 h-4 text-brand-cyan" />
-                  <span>LinkedIn Profile</span>
+                  <span>LinkedIn</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                 </a>
 
                 <a
-                  href="https://github.com/prajwalchavan25107"
+                  href="https://github.com/prajwalchavan25"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-cyan/40 text-slate-200 hover:text-brand-cyan text-xs font-medium transition-all group/link"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-cyan/40 text-slate-200 hover:text-brand-cyan text-xs font-medium transition-all group/link"
                 >
                   <Github className="w-4 h-4 text-brand-cyan" />
-                  <span>GitHub Profile</span>
+                  <span>GitHub</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                </a>
+
+                <a
+                  href="https://www.instagram.com/prajwal_chavan10/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-cyan/40 text-slate-200 hover:text-brand-cyan text-xs font-medium transition-all group/link"
+                >
+                  <Instagram className="w-4 h-4 text-brand-cyan" />
+                  <span>Instagram</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                 </a>
               </div>

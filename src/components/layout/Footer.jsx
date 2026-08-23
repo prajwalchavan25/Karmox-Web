@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Instagram, ArrowUp } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -66,28 +66,39 @@ export default function Footer() {
             <h4 className="font-display text-xs font-semibold text-slate-300 uppercase tracking-widest mb-4">
               Connect
             </h4>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2.5">
               <a
-                href="https://linkedin.com/in/prajwalchavan"
+                href="https://www.linkedin.com/in/prajwal-chavan-6a1020380/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-brand-cyan transition-colors group"
               >
-                <div className="w-8 h-8 rounded-lg bg-surface-card border border-white/10 flex items-center justify-center group-hover:border-brand-cyan/40 transition-colors">
-                  <Linkedin className="w-4 h-4" />
+                <div className="w-7 h-7 rounded-lg bg-surface-card border border-white/10 flex items-center justify-center group-hover:border-brand-cyan/40 transition-colors">
+                  <Linkedin className="w-3.5 h-3.5" />
                 </div>
                 <span>LinkedIn</span>
               </a>
               <a
-                href="https://github.com/prajwalchavan25107"
+                href="https://github.com/prajwalchavan25"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-brand-cyan transition-colors group"
               >
-                <div className="w-8 h-8 rounded-lg bg-surface-card border border-white/10 flex items-center justify-center group-hover:border-brand-cyan/40 transition-colors">
-                  <Github className="w-4 h-4" />
+                <div className="w-7 h-7 rounded-lg bg-surface-card border border-white/10 flex items-center justify-center group-hover:border-brand-cyan/40 transition-colors">
+                  <Github className="w-3.5 h-3.5" />
                 </div>
                 <span>GitHub</span>
+              </a>
+              <a
+                href="https://www.instagram.com/prajwal_chavan10/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-brand-cyan transition-colors group"
+              >
+                <div className="w-7 h-7 rounded-lg bg-surface-card border border-white/10 flex items-center justify-center group-hover:border-brand-cyan/40 transition-colors">
+                  <Instagram className="w-3.5 h-3.5" />
+                </div>
+                <span>Instagram</span>
               </a>
             </div>
           </div>
