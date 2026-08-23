@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, Globe, Box, Sparkles, ArrowUpRight } from 'lucide-react';
+import { Box, ArrowUpRight } from 'lucide-react';
 import Card3DIcon from '../3d/Card3DIcon';
 
 const cards = [
@@ -8,7 +8,7 @@ const cards = [
     id: 'ai',
     title: 'AI & Intelligent Tools',
     tagline: 'Practical Automation',
-    description: 'AI-powered solutions designed for practical use.',
+    description: 'AI-powered solutions designed for practical daily use and streamlined task workflows.',
     type: 'ai',
     borderGlow: 'hover:border-brand-cyan/40',
     accentColor: '#00f0ff',
@@ -17,7 +17,7 @@ const cards = [
     id: 'web',
     title: 'Web Platforms',
     tagline: 'High-Performance Web',
-    description: 'Modern web experiences and platforms designed around real users.',
+    description: 'Modern, high-performance web experiences and platforms designed around real user utility.',
     type: 'web',
     borderGlow: 'hover:border-sky-400/40',
     accentColor: '#38bdf8',
@@ -26,7 +26,7 @@ const cards = [
     id: 'digital',
     title: 'Digital Products',
     tagline: 'Utility-Driven Software',
-    description: 'Useful software products built from real-world problems.',
+    description: 'Useful software applications and tools built directly from real-world problem observations.',
     type: 'digital',
     borderGlow: 'hover:border-brand-indigo/40',
     accentColor: '#6366f1',
@@ -35,7 +35,7 @@ const cards = [
     id: 'experimental',
     title: 'Experimental Technology',
     tagline: 'Frontier Explorations',
-    description: 'Exploring new technologies, ideas and unconventional solutions.',
+    description: 'Exploring new technologies, interactive 3D paradigms, and unconventional ideas.',
     type: 'experimental',
     borderGlow: 'hover:border-purple-400/40',
     accentColor: '#c084fc',
@@ -44,7 +44,7 @@ const cards = [
 
 export default function WhatWeBuild() {
   return (
-    <section id="products" className="relative py-28 md:py-36 bg-surface-darker overflow-hidden border-t border-white/5">
+    <section id="what-we-build" className="relative py-28 md:py-36 bg-surface-darker overflow-hidden border-t border-white/5">
       {/* Background radial highlight */}
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-brand-indigo/5 rounded-full blur-[160px] pointer-events-none -z-10" />
 
@@ -65,7 +65,7 @@ export default function WhatWeBuild() {
         </div>
 
         {/* 4 Cards Grid */}
-        <div id="what-we-build" className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {cards.map((card, index) => (
             <motion.div
               key={card.id}
@@ -104,7 +104,7 @@ export default function WhatWeBuild() {
 
               {/* Bottom detail */}
               <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
-                <span className="group-hover:text-slate-300 transition-colors">INITIATIVE 0{index + 1}</span>
+                <span className="group-hover:text-slate-300 transition-colors">CAPABILITY 0{index + 1}</span>
                 <div className="flex items-center gap-1 text-slate-400 group-hover:text-brand-cyan transition-colors">
                   <span>Explore Scope</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

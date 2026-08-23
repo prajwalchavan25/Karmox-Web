@@ -16,7 +16,6 @@ export default function LoadingScreen({ onFinish }) {
           }, 300);
           return 100;
         }
-        // Smooth progression
         const step = Math.random() * 25 + 15;
         return Math.min(100, Math.round(prev + step));
       });
@@ -35,36 +34,19 @@ export default function LoadingScreen({ onFinish }) {
           className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-void text-white select-none"
         >
           <div className="relative flex flex-col items-center">
-            {/* Karmaox Emblem */}
+            {/* Official Karmaox Logo */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="relative w-16 h-16 mb-8"
+              className="relative w-28 h-28 mb-6 flex items-center justify-center"
             >
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <defs>
-                  <linearGradient id="load-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#00f0ff" />
-                    <stop offset="100%" stopColor="#6366f1" />
-                  </linearGradient>
-                </defs>
-                <rect width="100" height="100" rx="24" fill="#0c0e1a" stroke="rgba(255,255,255,0.1)" strokeWidth="2" />
-                <motion.path
-                  d="M30 25 L30 75 M30 50 L68 25 M38 45 L72 75"
-                  stroke="url(#load-grad)"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 0.8, ease: 'easeInOut' }}
-                />
-                <circle cx="70" cy="25" r="4" fill="#00f0ff" className="animate-pulse" />
-                <circle cx="72" cy="75" r="4" fill="#6366f1" className="animate-pulse" />
-              </svg>
-              <div className="absolute inset-0 bg-brand-cyan/20 blur-xl rounded-full animate-pulse-slow -z-10" />
+              <img
+                src="/assets/karmaox-logo.png"
+                alt="Karmaox Logo"
+                className="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(0,240,255,0.4)]"
+              />
+              <div className="absolute inset-0 bg-brand-cyan/15 blur-2xl rounded-full animate-pulse-slow -z-10" />
             </motion.div>
 
             {/* Brand Title */}
@@ -78,7 +60,7 @@ export default function LoadingScreen({ onFinish }) {
                 KARMAOX
               </span>
               <p className="text-[11px] font-mono tracking-widest text-slate-400 mt-1 uppercase">
-                Technology &bull; Innovation
+                Building Ideas Into Digital Experiences
               </p>
             </motion.div>
 

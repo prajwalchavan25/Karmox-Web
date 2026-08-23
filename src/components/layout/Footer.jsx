@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, ArrowUp, Sparkles } from 'lucide-react';
+import { Github, Linkedin, ArrowUp } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -9,9 +9,8 @@ export default function Footer() {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Products', href: '#products' },
-    { name: 'Innovation', href: '#innovation' },
-    { name: 'Vision', href: '#vision' },
+    { name: 'What We Build', href: '#what-we-build' },
+    { name: 'Founder', href: '#founder' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -25,24 +24,11 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-surface-card border border-white/10 flex items-center justify-center p-1">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <defs>
-                    <linearGradient id="footer-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#00f0ff" />
-                      <stop offset="100%" stopColor="#6366f1" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M30 25 L30 75 M30 50 L68 25 M38 45 L72 75"
-                    stroke="url(#footer-grad)"
-                    strokeWidth="10"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                </svg>
-              </div>
+              <img
+                src="/assets/karmaox-logo.png"
+                alt="Karmaox Logo"
+                className="h-8 w-auto object-contain"
+              />
               <span className="font-display font-bold text-xl tracking-[0.2em] text-white">
                 KARMAOX
               </span>
@@ -52,7 +38,7 @@ export default function Footer() {
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-brand-cyan">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse" />
-              EARLY-STAGE TECHNOLOGY &amp; INNOVATION
+              BUILDING IDEAS INTO DIGITAL EXPERIENCES
             </div>
           </div>
 
@@ -82,7 +68,7 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-3">
               <a
-                href="https://linkedin.com/company/karmaox"
+                href="https://linkedin.com/in/prajwalchavan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-brand-cyan transition-colors group"
@@ -93,7 +79,7 @@ export default function Footer() {
                 <span>LinkedIn</span>
               </a>
               <a
-                href="https://github.com/karmaox"
+                href="https://github.com/prajwalchavan25107"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-brand-cyan transition-colors group"

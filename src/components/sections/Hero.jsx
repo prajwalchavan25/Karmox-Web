@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Compass, Sparkles, Terminal } from 'lucide-react';
+import { ArrowRight, User, Terminal } from 'lucide-react';
 import HeroScene from '../3d/HeroScene';
 
 export default function Hero() {
@@ -31,20 +31,20 @@ export default function Hero() {
             {/* Small Label / Badge */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-brand-cyan text-xs font-mono tracking-widest uppercase mb-6 backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-brand-cyan shadow-[0_0_8px_#00f0ff] animate-pulse" />
-              <span>KARMAOX • TECHNOLOGY &amp; INNOVATION</span>
+              <span>KARMAOX</span>
             </div>
 
             {/* Headline */}
             <h1 className="font-display font-bold text-4xl sm:text-6xl xl:text-7xl text-white tracking-tight leading-[1.08] mb-6">
-              Turning Ideas <br />
+              Building Ideas <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-400">
-                Into Technology.
+                Into Digital Experiences.
               </span>
             </h1>
 
             {/* Supporting Text */}
             <p className="text-slate-300 text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-xl mb-10">
-              Karmaox builds practical digital products that transform real-world problems into simple, useful experiences.
+              Karmaox is a technology-driven company focused on building practical digital products, experiences, and solutions.
             </p>
 
             {/* Buttons */}
@@ -58,11 +58,11 @@ export default function Hero() {
               </button>
 
               <button
-                onClick={() => scrollTo('vision')}
+                onClick={() => scrollTo('founder')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full font-medium text-sm tracking-wide text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-md"
               >
-                <Compass className="w-4 h-4 text-brand-cyan" />
-                <span>Our Vision</span>
+                <User className="w-4 h-4 text-brand-cyan" />
+                <span>Meet the Founder</span>
               </button>
             </div>
 
@@ -74,13 +74,13 @@ export default function Hero() {
               </div>
               <div>
                 <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Approach</div>
-                <div className="text-sm font-semibold text-white">Simplicity First</div>
+                <div className="text-sm font-semibold text-white">Engineering First</div>
               </div>
               <div>
                 <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Status</div>
                 <div className="text-sm font-semibold text-brand-cyan flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan" />
-                  Building V1
+                  Active Development
                 </div>
               </div>
             </div>

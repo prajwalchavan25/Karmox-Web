@@ -12,7 +12,6 @@ export default function Contact() {
     if (!formData.name || !formData.email || !formData.message) return;
     
     setLoading(true);
-    // Realistic handling
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
@@ -47,34 +46,41 @@ export default function Contact() {
             </p>
 
             <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 w-full mb-8 space-y-4">
-              <div>
-                <div className="font-display font-bold text-lg text-white">Karmaox</div>
-                <div className="text-xs font-mono text-slate-400">Technology &amp; Innovation</div>
+              <div className="flex items-center gap-3">
+                <img
+                  src="/assets/karmaox-logo.png"
+                  alt="Karmaox"
+                  className="h-6 w-auto object-contain"
+                />
+                <div>
+                  <div className="font-display font-bold text-base text-white">Karmaox</div>
+                  <div className="text-xs font-mono text-slate-400">Building Ideas Into Digital Experiences</div>
+                </div>
               </div>
               <div className="text-xs text-slate-400 font-light">
-                Building practical digital products with modern software, AI, and creative engineering.
+                Building practical digital products with modern software, web technologies, and creative innovation.
               </div>
             </div>
 
             {/* Social handles */}
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <a
-                href="https://linkedin.com/company/karmaox"
+                href="https://linkedin.com/in/prajwalchavan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl glass-panel text-slate-300 hover:text-brand-cyan transition-colors text-xs font-medium border border-white/10 hover:border-brand-cyan/40"
               >
-                <Linkedin className="w-4 h-4" />
-                <span>Karmaox on LinkedIn</span>
+                <Linkedin className="w-4 h-4 text-brand-cyan" />
+                <span>LinkedIn</span>
               </a>
               <a
-                href="https://github.com/karmaox"
+                href="https://github.com/prajwalchavan25107"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl glass-panel text-slate-300 hover:text-brand-cyan transition-colors text-xs font-medium border border-white/10 hover:border-brand-cyan/40"
               >
-                <Github className="w-4 h-4" />
-                <span>Karmaox on GitHub</span>
+                <Github className="w-4 h-4 text-brand-cyan" />
+                <span>GitHub</span>
               </a>
             </div>
           </div>
@@ -156,7 +162,7 @@ export default function Contact() {
                   {/* Message Input */}
                   <div>
                     <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2">
-                      Message / Project Brief
+                      Message / Inquiry
                     </label>
                     <div className="relative">
                       <div className="absolute top-4 left-4 pointer-events-none text-slate-500">

@@ -1,26 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Lightbulb, Target, Sparkles } from 'lucide-react';
+import { Code, Lightbulb, Sparkles, Cpu, Layers } from 'lucide-react';
 import AboutVisual from '../3d/AboutVisual';
 
-const principles = [
+const pillars = [
   {
     number: '01',
-    title: 'Simplicity',
-    description: 'Make complex technology easier to use.',
-    icon: Layers,
+    title: 'Modern Software & Platforms',
+    description: 'Engineering resilient, scalable web architectures and digital products designed around real user needs.',
+    icon: Code,
   },
   {
     number: '02',
-    title: 'Innovation',
-    description: 'Explore new ideas and modern technologies.',
+    title: 'Creative Problem Solving',
+    description: 'Deconstructing real-world bottlenecks to engineer intuitive, simplified digital experiences.',
     icon: Lightbulb,
   },
   {
     number: '03',
-    title: 'Impact',
-    description: 'Build things that solve real problems.',
-    icon: Target,
+    title: 'Focused Innovation',
+    description: 'Exploring emerging technologies and intelligent workflows without unnecessary complexity.',
+    icon: Cpu,
   },
 ];
 
@@ -36,17 +36,17 @@ export default function About() {
         <div className="max-w-2xl mb-16 md:mb-24">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-brand-cyan uppercase tracking-widest mb-4">
             <Sparkles className="w-3 h-3 text-brand-cyan" />
-            <span>WHO WE ARE</span>
+            <span>ABOUT KARMAOX</span>
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
-            Technology With Purpose.
+            Building Useful Technology With Purpose.
           </h2>
           <p className="mt-6 text-slate-300 text-base sm:text-lg font-light leading-relaxed">
-            Karmaox is an emerging technology company focused on creating software, AI-powered experiences, web platforms and digital products that solve practical problems.
+            Karmaox is an emerging technology company focused on creating software, web platforms, and digital products that turn real-world challenges into practical, accessible digital solutions.
           </p>
         </div>
 
-        {/* Content Grid: 3D Visual + Principles */}
+        {/* Content Grid: 3D Visual + Pillars */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left: 3D Visual Mesh */}
@@ -62,15 +62,15 @@ export default function About() {
               <AboutVisual />
               
               <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-[11px] font-mono text-slate-400 border-t border-white/10 pt-3">
-                <span>FOUNDATIONAL ARCHITECTURE</span>
-                <span className="text-brand-cyan">V1.0 MODEL</span>
+                <span>SYSTEM ARCHITECTURE</span>
+                <span className="text-brand-cyan">ENGINEERED V1</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Right: The 3 Core Principles */}
+          {/* Right: The 3 Core Pillars */}
           <div className="lg:col-span-7 flex flex-col gap-6">
-            {principles.map((p, idx) => {
+            {pillars.map((p, idx) => {
               const Icon = p.icon;
               return (
                 <motion.div
@@ -89,7 +89,7 @@ export default function About() {
                       </span>
                     </div>
 
-                    {/* Principle Info */}
+                    {/* Pillar Info */}
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
                         <h3 className="font-display font-semibold text-lg sm:text-xl text-white group-hover:text-brand-cyan transition-colors">

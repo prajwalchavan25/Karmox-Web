@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
-  { name: 'Products', href: '#products' },
-  { name: 'Innovation', href: '#innovation' },
-  { name: 'Vision', href: '#vision' },
+  { name: 'What We Build', href: '#what-we-build' },
+  { name: 'Founder', href: '#founder' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -20,8 +19,8 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Simple active section detection
-      const sections = ['home', 'about', 'products', 'innovation', 'vision', 'contact'];
+      // Active section detection
+      const sections = ['home', 'about', 'what-we-build', 'founder', 'contact'];
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -55,30 +54,19 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between">
-          {/* Logo */}
+          
+          {/* Logo with official brand image */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, '#home')}
             className="flex items-center gap-3 group select-none"
           >
-            <div className="w-8 h-8 rounded-lg bg-surface-card border border-white/10 flex items-center justify-center p-1 relative overflow-hidden group-hover:border-brand-cyan/50 transition-colors">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <defs>
-                  <linearGradient id="nav-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#00f0ff" />
-                    <stop offset="100%" stopColor="#6366f1" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M30 25 L30 75 M30 50 L68 25 M38 45 L72 75"
-                  stroke="url(#nav-grad)"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-              <div className="absolute inset-0 bg-brand-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="h-8 w-auto flex items-center justify-center relative">
+              <img
+                src="/assets/karmaox-logo.png"
+                alt="Karmaox Official Logo"
+                className="h-7 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
             </div>
             <span className="font-display font-bold text-lg tracking-[0.2em] text-white group-hover:text-brand-cyan transition-colors">
               KARMAOX
@@ -88,7 +76,8 @@ export default function Navbar() {
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex items-center gap-1 glass-panel px-4 py-1.5 rounded-full border border-white/5">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.name.toLowerCase();
+              const linkId = link.href.replace('#', '');
+              const isActive = activeSection === linkId;
               return (
                 <a
                   key={link.name}
@@ -144,7 +133,7 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="fixed inset-x-0 top-[60px] p-4 z-30 md:hidden"
           >
-            <div className="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col gap-4 shadow-2xl">
+            <div className="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col gap-3 shadow-2xl">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -155,7 +144,7 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
-              <div className="pt-2 border-t border-white/10">
+              <div className="pt-3 border-t border-white/10">
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, '#contact')}
