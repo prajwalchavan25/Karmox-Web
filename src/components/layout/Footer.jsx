@@ -1,0 +1,128 @@
+import React from 'react';
+import { Github, Linkedin, ArrowUp, Sparkles } from 'lucide-react';
+
+export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Products', href: '#products' },
+    { name: 'Innovation', href: '#innovation' },
+    { name: 'Vision', href: '#vision' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  return (
+    <footer className="relative border-t border-white/10 bg-void pt-16 pb-12 overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-24 bg-brand-cyan/10 blur-[100px] pointer-events-none -z-10" />
+
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 pb-12 border-b border-white/5">
+          {/* Brand Col */}
+          <div className="md:col-span-2 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-surface-card border border-white/10 flex items-center justify-center p-1">
+                <svg viewBox="0 0 100 100" className="w-full h-full">
+                  <defs>
+                    <linearGradient id="footer-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#00f0ff" />
+                      <stop offset="100%" stopColor="#6366f1" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M30 25 L30 75 M30 50 L68 25 M38 45 L72 75"
+                    stroke="url(#footer-grad)"
+                    strokeWidth="10"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </div>
+              <span className="font-display font-bold text-xl tracking-[0.2em] text-white">
+                KARMAOX
+              </span>
+            </div>
+            <p className="text-slate-400 text-sm max-w-md leading-relaxed font-light">
+              Building technology that turns real-world problems into simple digital solutions.
+            </p>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-brand-cyan">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse" />
+              EARLY-STAGE TECHNOLOGY &amp; INNOVATION
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-display text-xs font-semibold text-slate-300 uppercase tracking-widest mb-4">
+              Navigation
+            </h4>
+            <ul className="space-y-2.5">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-slate-400 hover:text-brand-cyan transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Connect */}
+          <div>
+            <h4 className="font-display text-xs font-semibold text-slate-300 uppercase tracking-widest mb-4">
+              Connect
+            </h4>
+            <div className="flex flex-col gap-3">
+              <a
+                href="https://linkedin.com/company/karmaox"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-brand-cyan transition-colors group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-surface-card border border-white/10 flex items-center justify-center group-hover:border-brand-cyan/40 transition-colors">
+                  <Linkedin className="w-4 h-4" />
+                </div>
+                <span>LinkedIn</span>
+              </a>
+              <a
+                href="https://github.com/karmaox"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-brand-cyan transition-colors group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-surface-card border border-white/10 flex items-center justify-center group-hover:border-brand-cyan/40 transition-colors">
+                  <Github className="w-4 h-4" />
+                </div>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
+          <p>© 2026 Karmaox. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <span>Built with Curiosity &amp; Purpose</span>
+            <button
+              onClick={scrollToTop}
+              className="flex items-center gap-1.5 text-slate-400 hover:text-brand-cyan transition-colors"
+              aria-label="Scroll to top"
+            >
+              <span>Back to top</span>
+              <ArrowUp className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
