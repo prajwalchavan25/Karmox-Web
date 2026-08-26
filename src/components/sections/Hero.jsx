@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, User, Terminal } from 'lucide-react';
+import { ArrowRight, Lightbulb, Compass, Terminal } from 'lucide-react';
 import HeroScene from '../3d/HeroScene';
 
 export default function Hero() {
@@ -31,56 +31,56 @@ export default function Hero() {
             {/* Small Label / Badge */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-brand-cyan text-xs font-mono tracking-widest uppercase mb-6 backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-brand-cyan shadow-[0_0_8px_#00f0ff] animate-pulse" />
-              <span>KARMAOX</span>
+              <span>STUDENT INNOVATION PLATFORM</span>
             </div>
 
             {/* Headline */}
             <h1 className="font-display font-bold text-4xl sm:text-6xl xl:text-7xl text-white tracking-tight leading-[1.08] mb-6">
-              Building Ideas <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-400">
-                Into Digital Experiences.
+              Turn Problems <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan via-slate-100 to-brand-indigo">
+                Into Technology.
               </span>
             </h1>
 
             {/* Supporting Text */}
             <p className="text-slate-300 text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-xl mb-10">
-              Karmaox is a technology-driven company focused on building practical digital products, experiences, and solutions.
+              Have a problem worth solving? Bring your idea to KARMAOX and turn it into something real. We help students understand, learn, build, and transform raw concepts into working software.
             </p>
 
             {/* Buttons */}
             <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
               <button
-                onClick={() => scrollTo('what-we-build')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full font-medium text-sm tracking-wide text-white bg-gradient-to-r from-brand-cyan/80 to-brand-blue/80 hover:from-brand-cyan hover:to-brand-blue transition-all duration-300 shadow-[0_0_30px_rgba(0,240,255,0.35)] hover:shadow-[0_0_40px_rgba(0,240,255,0.5)] group"
+                onClick={() => scrollTo('submit-idea')}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full font-medium text-sm tracking-wide text-white bg-gradient-to-r from-brand-cyan/80 to-brand-blue/80 hover:from-brand-cyan hover:to-brand-blue transition-all duration-300 shadow-[0_0_30px_rgba(0,240,255,0.35)] hover:shadow-[0_0_40px_rgba(0,240,255,0.5)] group cursor-pointer"
               >
-                <span>Explore Karmaox</span>
+                <span>Submit Your Idea</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
-                onClick={() => scrollTo('founder')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full font-medium text-sm tracking-wide text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-md"
+                onClick={() => scrollTo('approach')}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full font-medium text-sm tracking-wide text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-md cursor-pointer"
               >
-                <User className="w-4 h-4 text-brand-cyan" />
-                <span>Meet the Founder</span>
+                <Compass className="w-4 h-4 text-brand-cyan" />
+                <span>Our Approach</span>
               </button>
             </div>
 
-            {/* Key Feature Indicator */}
+            {/* Key Journey Indicator */}
             <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-3 gap-6 w-full max-w-lg">
               <div>
-                <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Focus</div>
-                <div className="text-sm font-semibold text-white">Digital Products</div>
+                <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">From</div>
+                <div className="text-sm font-semibold text-white">Daily Problems</div>
               </div>
               <div>
-                <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Approach</div>
-                <div className="text-sm font-semibold text-white">Engineering First</div>
+                <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Through</div>
+                <div className="text-sm font-semibold text-white">Learn &amp; Build</div>
               </div>
               <div>
-                <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Status</div>
+                <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">To</div>
                 <div className="text-sm font-semibold text-brand-cyan flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan" />
-                  Active Development
+                  Working MVPs
                 </div>
               </div>
             </div>

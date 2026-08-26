@@ -8,10 +8,12 @@ export default function Footer() {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'What We Build', href: '#what-we-build' },
+    { name: 'The Problem', href: '#the-problem' },
+    { name: 'Approach', href: '#approach' },
+    { name: 'KARMAOX AI', href: '#karmaox-ai' },
+    { name: 'Problem Bank', href: '#problem-bank' },
     { name: 'Founder', href: '#founder' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Submit Idea', href: '#submit-idea' },
   ];
 
   return (
@@ -23,22 +25,22 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 pb-12 border-b border-white/5">
           {/* Brand Col */}
           <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3.5">
               <img
                 src="/assets/karmaox-logo.png"
                 alt="Karmaox Logo"
-                className="h-8 w-auto object-contain"
+                className="h-9 w-auto object-contain"
               />
               <span className="font-display font-bold text-xl tracking-[0.2em] text-white">
                 KARMAOX
               </span>
             </div>
             <p className="text-slate-400 text-sm max-w-md leading-relaxed font-light">
-              Building technology that turns real-world problems into simple digital solutions.
+              KARMAOX helps students turn real-world problems into real technology through modern tools, AI mentorship, and practical engineering.
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-brand-cyan">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse" />
-              BUILDING IDEAS INTO DIGITAL EXPERIENCES
+              TURN PROBLEMS INTO TECHNOLOGY
             </div>
           </div>
 
@@ -108,10 +110,10 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
           <p>© 2026 Karmaox. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <span>Built with Curiosity &amp; Purpose</span>
+            <span>Problem &rarr; Idea &rarr; Build &rarr; Product</span>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-slate-400 hover:text-brand-cyan transition-colors"
+              className="flex items-center gap-1.5 text-slate-400 hover:text-brand-cyan transition-colors cursor-pointer"
               aria-label="Scroll to top"
             >
               <span>Back to top</span>

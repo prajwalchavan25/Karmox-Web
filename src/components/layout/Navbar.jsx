@@ -4,10 +4,11 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'What We Build', href: '#what-we-build' },
+  { name: 'The Problem', href: '#the-problem' },
+  { name: 'Approach', href: '#approach' },
+  { name: 'KARMAOX AI', href: '#karmaox-ai' },
+  { name: 'Problem Bank', href: '#problem-bank' },
   { name: 'Founder', href: '#founder' },
-  { name: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
@@ -20,7 +21,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
 
       // Active section detection
-      const sections = ['home', 'about', 'what-we-build', 'founder', 'contact'];
+      const sections = ['home', 'the-problem', 'approach', 'karmaox-ai', 'problem-bank', 'founder', 'submit-idea'];
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -55,7 +56,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between">
           
-          {/* Logo with official OX symbol (44-48px on desktop, 38px on mobile) */}
+          {/* Official KARMAOX Logo (Unchanged branding & proportions) */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, '#home')}
@@ -72,7 +73,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 glass-panel px-5 py-2 rounded-full border border-white/5 mx-4">
+          <nav className="hidden lg:flex items-center gap-1 glass-panel px-4 py-2 rounded-full border border-white/5 mx-2">
             {navLinks.map((link) => {
               const linkId = link.href.replace('#', '');
               const isActive = activeSection === linkId;
@@ -81,7 +82,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase transition-all relative ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase transition-all relative ${
                     isActive ? 'text-white' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
@@ -101,11 +102,11 @@ export default function Navbar() {
           {/* Right CTA */}
           <div className="hidden md:flex items-center flex-shrink-0">
             <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
-              className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-gradient-to-r from-brand-cyan/20 to-brand-indigo/20 hover:from-brand-cyan/30 hover:to-brand-indigo/30 border border-brand-cyan/40 hover:border-brand-cyan text-brand-cyan hover:text-white transition-all shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_25px_rgba(0,240,255,0.4)] group"
+              href="#submit-idea"
+              onClick={(e) => handleNavClick(e, '#submit-idea')}
+              className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-gradient-to-r from-brand-cyan/20 to-brand-indigo/20 hover:from-brand-cyan/30 hover:to-brand-indigo/30 border border-brand-cyan/40 hover:border-brand-cyan text-brand-cyan hover:text-white transition-all shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_25px_rgba(0,240,255,0.4)] group cursor-pointer"
             >
-              <span>Let's Build</span>
+              <span>Submit Idea</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
@@ -113,7 +114,7 @@ export default function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2.5 rounded-lg bg-surface-card border border-white/10 text-slate-300 hover:text-white"
+            className="lg:hidden p-2.5 rounded-lg bg-surface-card border border-white/10 text-slate-300 hover:text-white"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -129,7 +130,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[68px] p-4 z-30 md:hidden"
+            className="fixed inset-x-0 top-[68px] p-4 z-30 lg:hidden"
           >
             <div className="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col gap-3 shadow-2xl">
               {navLinks.map((link) => (
@@ -144,11 +145,11 @@ export default function Navbar() {
               ))}
               <div className="pt-3 border-t border-white/10">
                 <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, '#contact')}
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-brand-cyan/20 to-brand-indigo/20 border border-brand-cyan/40 text-brand-cyan text-sm font-semibold uppercase tracking-wider"
+                  href="#submit-idea"
+                  onClick={(e) => handleNavClick(e, '#submit-idea')}
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-brand-cyan/20 to-brand-indigo/20 border border-brand-cyan/40 text-brand-cyan text-sm font-semibold uppercase tracking-wider cursor-pointer"
                 >
-                  <span>Let's Build</span>
+                  <span>Submit Idea</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>

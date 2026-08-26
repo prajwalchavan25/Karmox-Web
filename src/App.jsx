@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import WhatWeBuild from './components/sections/WhatWeBuild';
+import ProblemSection from './components/sections/ProblemSection';
+import Approach from './components/sections/Approach';
+import KarmaoxAI from './components/sections/KarmaoxAI';
+import ProblemBank from './components/sections/ProblemBank';
 import ProductShowcase from './components/sections/ProductShowcase';
-import Innovation from './components/sections/Innovation';
-import Vision from './components/sections/Vision';
 import Founder from './components/sections/Founder';
-import Roadmap from './components/sections/Roadmap';
-import Contact from './components/sections/Contact';
+import IdeaSubmission from './components/sections/IdeaSubmission';
 import CustomCursor from './components/ui/CustomCursor';
 import ScrollProgress from './components/ui/ScrollProgress';
 import LoadingScreen from './components/ui/LoadingScreen';
@@ -29,17 +28,16 @@ export default function App() {
       {/* Navigation */}
       <Navbar />
 
-      {/* Main Content Sections */}
+      {/* Main Content Flow: Problem -> Idea -> Build -> Product -> Opportunity */}
       <main className="relative z-10">
         <Hero />
-        <About />
-        <WhatWeBuild />
+        <ProblemSection />
+        <Approach />
+        <KarmaoxAI />
+        <ProblemBank />
         <ProductShowcase />
-        <Innovation />
-        <Vision />
         <Founder />
-        <Roadmap />
-        <Contact />
+        <IdeaSubmission />
       </main>
 
       {/* Footer */}
